@@ -1,12 +1,12 @@
 [all:vars]
-ansible_user=<YOUR ANSIBLE USER>
+ansible_user=ansible
+ansible_python_interpreter=/usr/bin/python3
 
 [master]
-master
+192.168.1.24
 
 [workers]
-worker1
-worker2
+192.168.1.23
 
 [nfs]
-nfs
+192.168.1.24
