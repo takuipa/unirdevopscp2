@@ -55,9 +55,10 @@
     - name: desactivar swap
       command: swapoff  -a
       become: true
+    - name: eliminar linea swap
+      command: sed -i '/swap/d' /etc/fstab
+      become: true
 
-#- name: eliminar linea fstab
-#  hosts: master, workers
 
 #- name: wget CRI-O
 #  hosts: master, workers
