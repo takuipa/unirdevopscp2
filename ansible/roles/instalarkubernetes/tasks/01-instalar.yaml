@@ -3,6 +3,6 @@
 - name: instalar paquetes
   dnf:
     name: "{{ lista }}"
-    disable_excludes: "{{ exclude }}"
+    disable_excludes: kubernetes
     state: present
   become: true
