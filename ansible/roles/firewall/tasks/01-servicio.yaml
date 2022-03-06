@@ -1,0 +1,7 @@
+---
+
+- name: anadir servicio
+  firewalld: 
+    service: "{{ item }}"
+  become: true
+  with_items: "{{servicios}}"

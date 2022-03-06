@@ -1,0 +1,4 @@
+---
+
+- name: aplicar configuracion exports
+  command: "exportfs -rs"

@@ -1,0 +1,9 @@
+---
+
+path: '/srv/nfs'
+
+owner: 'root'
+
+group: 'root'
+
+mode: 0751

@@ -1,0 +1,10 @@
+---
+
+- name: crear directorio
+  file: 
+    path: {{ path }}
+    state: directory
+    owner: {{ owner }}
+    group: {{ group }}
+    mode: {{ mode }}
+  become: true
