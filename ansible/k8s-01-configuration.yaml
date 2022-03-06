@@ -95,10 +95,10 @@
   roles:
     - instalarkubernetes
 
-#- name: habilitar kubelet
-#  hosts: master, workers
-#  vars:
-#    servicio: "kubelet"
-#  gather_facts: no
-#  roles:
-#    - servicio
+- name: habilitar kubelet
+  hosts: master, workers
+  vars:
+    servicio: "kubelet"
+  gather_facts: no
+  roles:
+    - servicio
