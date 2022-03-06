@@ -2,3 +2,4 @@
 
 - name: configurar zona
   command: "timedatectl set-timezone {{ zona }}"
+  become: true

@@ -3,3 +3,4 @@
 - name: deshabilitar SELinux
   selinux:
     state: disabled
+  become: true
