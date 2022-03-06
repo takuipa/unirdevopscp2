@@ -1,0 +1,44 @@
+---
+
+- name: configurar /etc/hosts
+  hosts: master, workers
+  vars_files:
+    - "group_vars/vars_k8s.yaml"
+  gather_facts: no
+  tasks:
+    name: configurar /etc/hosts
+      lineinfile:
+        path: /etc/hosts
+        line: "{{ item }}"
+        state: present
+        create: yes
+      with_items: "{{ lista }}"
+    become: true
+
+#-- name: activar firewalld
+
+#-- name: transparent masqueranding
+
+#-- name: trafico cortafuegos
+
+#-- name: desactivar swap
+
+#-- name: eliminar linea fstab
+
+#-- name: wget CRI-O
+
+#-- name: kernel CRI-O
+
+#-- name: install CRI-O
+
+#-- name: enable CRI-O
+
+#-- name: start CRI-O
+
+#-- name: repo kubernetes
+
+#-- name: instalamos kubernetes
+
+#-- name: enable kubelet
+
+#-- name: start kubelet
