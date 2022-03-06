@@ -1,8 +1,6 @@
 ---
 
-- name: anadir servicio
-  ansible.posix.firewalld: 
-    service: "nfs"
-    permanent: yes
+- name: anadir service
+  command: "firewall-cmd --permanent --add-service={{ item }}"
   become: true
-  #with_items: "{{ servicios }}"
+  with_items: "{{ servicios }}"
