@@ -1,7 +1,7 @@
 ---
 
 - name: anadir servicio
-  firewalld: 
+  ansible.posix.firewalld: 
     service: "nfs"
     permanent: yes
   become: true
