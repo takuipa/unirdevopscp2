@@ -2,7 +2,7 @@
 
 - name: anadir servicio
   firewalld: 
-    service: "{{ item }}"
+    service: "nfs"
     permanent: yes
   become: true
-  with_items: "{{ servicios }}"
+  #with_items: "{{ servicios }}"
