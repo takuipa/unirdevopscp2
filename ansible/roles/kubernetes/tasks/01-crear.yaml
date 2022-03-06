@@ -1,0 +1,10 @@
+---
+
+- name: crear el fichero /etc/yum.repos.d/kubernetes.repo
+  copy:
+    src: exports
+    dest:  /etc/yum.repos.d/kubernetes.repo
+    owner: root
+    group: root
+    mode: 0644
+  become: true

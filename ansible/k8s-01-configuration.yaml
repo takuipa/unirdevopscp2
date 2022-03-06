@@ -59,32 +59,46 @@
       command: sed -i '/swap/d' /etc/fstab
       become: true
 
-
 - name: Add repo CRI-O
   hosts: master, workers
   gather_facts: no
   roles:
     - crio
 
-#- name: install CRI-O
-#  hosts: master, workers
+- name: instalar CRI-O
+  hosts: master, workers
+  vars_files:
+    - "group_vars/paquete_crio.yaml"
+  gather_facts: no
+  roles:
+    - instalar
 
-#- name: enable CRI-O
-#  hosts: master, workers
+- name: habilitar CRI-O
+  hosts: master, workers
+  vars:
+    servicio: "crio"
+  gather_facts: no
+  roles:
+    - servicio
 
-#- name: start CRI-O
-#  hosts: master, workers
+- name: Add repo kubernetes
+  hosts: master, workers
+  gather_facts: no
+  roles:
+    - kubernetes
 
-#- name: repo kubernetes
-#  hosts: master, workers
+- name: instalar kubernetes
+  hosts: master, workers
+  vars_files:
+    - "group_vars/paquete_kubernetes.yaml"
+  gather_facts: no
+  roles:
+    - instalar
 
-#- name: instalamos kubernetes
-#  hosts: master, workers
-
-#- name: activar kubelet
-#  hosts: master, workers
-#  vars:
-#    servicio: "kubelet"
-#  gather_facts: no
-#  roles:
-#    - servicio
+- name: habilitar kubelet
+  hosts: master, workers
+  vars:
+    servicio: "kubelet"
+  gather_facts: no
+  roles:
+    - servicio
