@@ -3,5 +3,6 @@
 - name: anadir servicio
   firewalld: 
     service: "{{ item }}"
+    permanent: yes
   become: true
   with_items: "{{servicios}}"
