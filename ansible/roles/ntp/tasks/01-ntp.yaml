@@ -1,5 +1,5 @@
 ---
 
-- name: ejecutar timedatectl
+- name: ejecutar ntp
   command: timedatectl set-ntp true
   become: true
