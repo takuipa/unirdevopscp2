@@ -3,6 +3,6 @@
 - name: instalar paquetes
   dnf:
     name: "{{ lista }}"
-    state: present
     disable_excludes: "{{ exclude }}"
+    state: present
   become: true
