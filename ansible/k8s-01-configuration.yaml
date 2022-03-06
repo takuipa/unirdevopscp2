@@ -81,19 +81,19 @@
   roles:
     - servicio
 
-#- name: Add repo kubernetes
-#  hosts: master, workers
-#  gather_facts: no
-#  roles:
-#    - kubernetes
+- name: Add repo kubernetes
+  hosts: master, workers
+  gather_facts: no
+  roles:
+    - kubernetes
 
-#- name: instalar kubernetes
-#  hosts: master, workers
-#  vars_files:
-#    - "group_vars/paquete_kubernetes.yaml"
-#  gather_facts: no
-#  roles:
-#    - instalar
+- name: instalar kubernetes
+  hosts: master, workers
+  vars_files:
+    - "group_vars/paquete_kubernetes.yaml"
+  gather_facts: no
+  roles:
+    - instalar
 
 #- name: habilitar kubelet
 #  hosts: master, workers
