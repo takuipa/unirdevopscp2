@@ -1,5 +1,4 @@
 ---
 
 - name: configurar zona
-  timezone:
-    name: "{{ zona }}"
+  command: "timedatectl set-timezone {{ zona }}"
