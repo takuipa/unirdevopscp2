@@ -1,0 +1,13 @@
+---
+
+- name: Remove repository devel:kubic:libcontainers:stable.repo (and clean up left-over metadata)
+  yum_repository:
+    name: devel:kubic:libcontainers:stable.repo
+    state: absent
+  notify: yum-clean-metadata
+
+- name: Remove repository devel:kubic:libcontainers:stable:cri-o:1.23:1.23.1.repo (and clean up left-over metadata)
+  yum_repository:
+    name: devel:kubic:libcontainers:stable:cri-o:1.23:1.23.1.repo
+    state: absent
+  notify: yum-clean-metadata
