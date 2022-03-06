@@ -60,8 +60,23 @@
       become: true
 
 
-#- name: wget CRI-O
-#  hosts: master, workers
+- name: Add repo CRI-O
+  hosts: master, workers
+  tasks:
+    - name: wget devel:kubic:libcontainers:stable.repo 
+      yum_repository:
+        name: devel:kubic:libcontainers:stable.repo
+        description: devel:kubic:libcontainers:stable.repo
+        file: /etc/yum.repos.d/devel:kubic:libcontainers:stable.repo
+        baseurl: https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/CentOS_8_Stream/devel:kubic:libcontainers:stable.repo
+        gpgcheck: no
+    - name: wget  devel:kubic:libcontainers:stable:cri-o:1.23:1.23.1.repo
+      yum_repository:
+        name: devel:kubic:libcontainers:stable:cri-o:1.23:1.23.1.repo
+        description: devel:kubic:libcontainers:stable:cri-o:1.23:1.23.1.repo
+        file:  /etc/yum.repos.d/devel:kubic:libcontainers:stable:cri-o:1.23:1.23.1.repo
+        baseurl: https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:cri-o:1.23:1.23.1/CentOS_8_Stream/devel:kubic:libcontainers:stable:cri-o:1.23:1.23.1.repo
+        gpgcheck: no
 
 #- name: kernel CRI-O
 #  hosts: master, workers
