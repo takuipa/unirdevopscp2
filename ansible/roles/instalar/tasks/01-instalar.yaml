@@ -4,3 +4,4 @@
   dnf:
     name: "{{ lista }}"
     state: present
+  become: true
