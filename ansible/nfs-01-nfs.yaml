@@ -1,0 +1,17 @@
+---
+
+- name: instalar net-tools
+  hosts: nfs
+  vars_files:
+    - "group_vars/paquete_nfs.yaml"
+  gather_facts: no
+  roles:
+    - instalar
+
+- name: habilitar chrony
+  hosts: nfs
+  vars:
+    servicio: "nfs-server"
+  gather_facts: no
+  roles:
+    - servicio

@@ -1,6 +1,0 @@
----
-
-- include_tasks: 01-instalar.yaml
-  when: "{{deshabilitar}}" == "no"
-- include_tasks: 02-instalar-disableexcludes.yaml
-  when: "{{deshabilitar}}" == "si"
