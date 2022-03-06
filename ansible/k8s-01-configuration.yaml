@@ -93,7 +93,7 @@
     - "group_vars/paquete_kubernetes.yaml"
   gather_facts: no
   roles:
-    - instalar
+    - instalarkubernetes
 
 #- name: habilitar kubelet
 #  hosts: master, workers

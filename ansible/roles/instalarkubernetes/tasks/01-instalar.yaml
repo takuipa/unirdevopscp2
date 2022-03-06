@@ -1,9 +1,8 @@
 ---
 
 - name: instalar paquetes kubernetes
-#  dnf:
-#    name: "{{ lista }}"
-#    disable_excludes: kubernetes
-#    state: present
-  command: dnf install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+  dnf:
+    name: "{{ lista }}"
+    state: present
+    disable_excludes: "{{ exclude }}"
   become: true
