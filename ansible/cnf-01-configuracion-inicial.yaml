@@ -19,7 +19,7 @@
 - name: habilitar chrony
   hosts: all
   vars:
-    servicio: "chrony"
+    servicio: "chronyd"
   gather_facts: no
   roles:
     - servicio
