@@ -23,8 +23,24 @@
   roles:
     - servicio
 
-#- name: transparent masqueranding
+#- name: AllowZoneDrifting
 #  hosts: master, workers
+
+- name: activar transparent masqueranding
+  hosts: master, workers
+  gather_facts: no
+  tasks:
+    - name: modprobe br_netfilter
+      command: modprobe br_netfilter
+      become: true
+    - name: masquerade
+      command: firewall-cmd --add-masquerade --permanent
+      become: true
+    - name: reload service firewalld
+      systemd:
+        name: firewalld
+        state: reloaded
+      become: true
 
 #- name: trafico cortafuegos
 #  hosts: master, workers
