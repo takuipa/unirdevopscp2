@@ -5,3 +5,4 @@
     name: "{{ lista }}"
     state: present
     disable_excludes: "{{ exclude }}"
+  become: true
