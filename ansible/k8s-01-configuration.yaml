@@ -48,8 +48,13 @@
   roles:
     - cortafuegos
 
-#- name: desactivar swap
-#  hosts: master, workers
+- name: desactivar swap
+  hosts: master, workers
+  gather_facts: no
+  tasks:
+    - name: desactivar swap
+      command: swapoff  -a
+      become: true
 
 #- name: eliminar linea fstab
 #  hosts: master, workers
