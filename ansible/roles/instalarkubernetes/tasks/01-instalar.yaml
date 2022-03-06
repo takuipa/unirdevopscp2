@@ -1,6 +1,6 @@
 ---
 
-- name: instalar paquetes
+- name: instalar paquetes kubernetes
 #  dnf:
 #    name: "{{ lista }}"
 #    disable_excludes: kubernetes
