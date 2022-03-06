@@ -8,7 +8,7 @@
   roles:
     - instalar
 
-- name: habilitar chrony
+- name: habilitar nfs-server
   hosts: nfs
   vars:
     servicio: "nfs-server"
