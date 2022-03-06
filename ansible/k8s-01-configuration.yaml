@@ -15,30 +15,51 @@
       with_items: "{{ lista }}"
       become: true
 
-#-- name: activar firewalld
+- name: activar firewalld
+  hosts: master, workers
+  vars:
+    servicio: "firewalld"
+  gather_facts: no
+  roles:
+    - servicio
 
-#-- name: transparent masqueranding
+#- name: transparent masqueranding
+#  hosts: master, workers
 
-#-- name: trafico cortafuegos
+#- name: trafico cortafuegos
+#  hosts: master, workers
 
-#-- name: desactivar swap
+#- name: desactivar swap
+#  hosts: master, workers
 
-#-- name: eliminar linea fstab
+#- name: eliminar linea fstab
+#  hosts: master, workers
 
-#-- name: wget CRI-O
+#- name: wget CRI-O
+#  hosts: master, workers
 
-#-- name: kernel CRI-O
+#- name: kernel CRI-O
+#  hosts: master, workers
 
-#-- name: install CRI-O
+#- name: install CRI-O
+#  hosts: master, workers
 
-#-- name: enable CRI-O
+#- name: enable CRI-O
+#  hosts: master, workers
 
-#-- name: start CRI-O
+#- name: start CRI-O
+#  hosts: master, workers
 
-#-- name: repo kubernetes
+#- name: repo kubernetes
+#  hosts: master, workers
 
-#-- name: instalamos kubernetes
+#- name: instalamos kubernetes
+#  hosts: master, workers
 
-#-- name: enable kubelet
-
-#-- name: start kubelet
+#- name: activar kubelet
+#  hosts: master, workers
+#  vars:
+#    servicio: "kubelet"
+#  gather_facts: no
+#  roles:
+#    - servicio
