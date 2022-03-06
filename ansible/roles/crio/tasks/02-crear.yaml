@@ -1,0 +1,10 @@
+---
+
+- name: crear el fichero /etc/modules-load.d/crio.conf
+  copy:
+    src: exports
+    dest:  /etc/modules-load.d/crio.conf
+    owner: root
+    group: root
+    mode: 0644
+  become: true
