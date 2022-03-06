@@ -1,25 +1,21 @@
 ---
 
 - name: Remove repository kubic-stable.repo (and clean up left-over metadata)
-  yum_repository:
-    name: kubic-stable.repo
-    state: absent
+  command: yum remove kubic-stable.repo
   become: true
 
 - name: Remove repository kubic-cri-o:1.23:1.23.1.repo (and clean up left-over metadata)
-  yum_repository:
-    name: kubic-cri-o:1.23:1.23.1.repo
-    state: absent
+  command: yum remove kubic-cri-o:1.23:1.23.1.repo
   become: true
 
 - name: Remove repository devel:kubic:libcontainers:stable.repo (and clean up left-over metadata)
-  yum_repository:
-    name: devel:kubic:libcontainers:stable.repo
-    state: absent
+  command: yum remove devel:kubic:libcontainers:stable.repo
   become: true
 
 - name: Remove repository devel:kubic:libcontainers:stable:cri-o:1.23:1.23.1.repo (and clean up left-over metadata)
-  yum_repository:
-    name: devel:kubic:libcontainers:stable:cri-o:1.23:1.23.1.repo
-    state: absent
+  command: yum remove devel:kubic:libcontainers:stable:cri-o:1.23:1.23.1.repo
+  become: true
+
+- name: Remove clean
+  command: yum clean all
   become: true
