@@ -24,7 +24,7 @@
   roles:
     - servicio
 
-- name: ejecutar timedatectl
+- name: ejecutar ntp
   hosts: all
   gather_facts: no
   roles:
@@ -34,7 +34,7 @@
   hosts: all
   gather_facts: no
   roles:
-    - ntp
+    - selinux
 
 - name: instalar paquetes comunes
   hosts: all
