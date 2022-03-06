@@ -65,13 +65,13 @@
   roles:
     - crio
 
-- name: instalar CRI-O
-  hosts: master, workers
-  vars_files:
-    - "group_vars/paquete_crio.yaml"
-  gather_facts: no
-  roles:
-    - instalar
+#- name: instalar CRI-O
+#  hosts: master, workers
+#  vars_files:
+#    - "group_vars/paquete_crio.yaml"
+#  gather_facts: no
+#  roles:
+#    - instalar
 
 - name: habilitar CRI-O
   hosts: master, workers
