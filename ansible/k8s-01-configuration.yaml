@@ -42,8 +42,11 @@
         state: reloaded
       become: true
 
-#- name: trafico cortafuegos
-#  hosts: master, workers
+- name: trafico cortafuegos
+  hosts: master, workers
+  gather_facts: no
+  roles:
+    - cortafuegos
 
 #- name: desactivar swap
 #  hosts: master, workers
