@@ -22,7 +22,7 @@
     servicio: chrony
   gather_facts: no
   roles:
-    - habilitar
+    - servicio
 
 - name: ejecutar timedatectl
   hosts: all
