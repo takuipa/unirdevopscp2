@@ -1,6 +1,5 @@
 ---
 
 - name: deshabilitar SELinux
-  selinux:
-    state: disabled
+  command: "sed -i s/=enforcing/=disabled/g /etc/selinux/config"
   become: true
