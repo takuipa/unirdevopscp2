@@ -1,0 +1,6 @@
+---
+
+- name: anadir service
+  command: "firewall-cmd --permanent --add-{{ option }}={{ item }}"
+  become: true
+  with_items: "{{ lista }}"
