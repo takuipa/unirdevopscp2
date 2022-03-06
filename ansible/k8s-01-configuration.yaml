@@ -70,6 +70,7 @@
         file: /etc/yum.repos.d/devel:kubic:libcontainers:stable.repo
         baseurl: https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/CentOS_8_Stream/devel:kubic:libcontainers:stable.repo
         gpgcheck: no
+      become: true
     - name: wget  devel:kubic:libcontainers:stable:cri-o:1.23:1.23.1.repo
       yum_repository:
         name: devel:kubic:libcontainers:stable:cri-o:1.23:1.23.1.repo
@@ -77,6 +78,7 @@
         file:  /etc/yum.repos.d/devel:kubic:libcontainers:stable:cri-o:1.23:1.23.1.repo
         baseurl: https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:cri-o:1.23:1.23.1/CentOS_8_Stream/devel:kubic:libcontainers:stable:cri-o:1.23:1.23.1.repo
         gpgcheck: no
+      become: true
 
 #- name: kernel CRI-O
 #  hosts: master, workers
