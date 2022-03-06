@@ -60,7 +60,7 @@
       become: true
 
 - name: Add repo CRI-O
-  hosts: workers
+  hosts: master, workers
   gather_facts: no
   roles:
     - crio
