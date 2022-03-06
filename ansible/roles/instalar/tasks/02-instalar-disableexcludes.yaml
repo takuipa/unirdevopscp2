@@ -1,0 +1,7 @@
+---
+
+- name: instalar paquetes
+  dnf:
+    name: "{{ lista }}"
+    state: present
+    disable_excludes: "{{ exclude }}"

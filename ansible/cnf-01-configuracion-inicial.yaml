@@ -1,0 +1,45 @@
+---
+
+- name: configurar zona
+  hosts: all
+  vars_files:
+    - "group_vars/zona.yaml"
+  gather_facts: no
+  roles:
+    - zona
+
+- name: instalar chrony
+  hosts: all
+  vars_files:
+    - "group_vars/paquete_chrony.yaml"
+  gather_facts: no
+  roles:
+    - instalar
+
+- name: habilitar chrony
+  hosts: all
+  vars:
+    servicio: chrony
+  gather_facts: no
+  roles:
+    - habilitar
+
+- name: ejecutar timedatectl
+  hosts: all
+  gather_facts: no
+  roles:
+    - ntp
+
+- name: deshabilitar SELinux
+  hosts: all
+  gather_facts: no
+  roles:
+    - ntp
+
+- name: instalar paquetes comunes
+  hosts: all
+  vars_files:
+    - "group_vars/paquete_comun.yaml"
+  gather_facts: no
+  roles:
+    - instalar

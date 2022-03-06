@@ -1,0 +1,7 @@
+---
+
+ lista: ['kubelet', 'kubeadm', 'kubectl']
+
+ deshabilitar: 'no'
+
+ exclude: 'kubernetes'

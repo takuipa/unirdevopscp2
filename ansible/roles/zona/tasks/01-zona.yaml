@@ -1,0 +1,5 @@
+---
+
+- name: configurar zona
+  timezone:
+    name: "{{ zona }}"

@@ -1,0 +1,6 @@
+---
+
+- name: arrancar servicio
+  systemd:
+    name: "{{ servicio }}"
+    state: started

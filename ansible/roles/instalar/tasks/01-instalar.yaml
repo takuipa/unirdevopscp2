@@ -1,0 +1,6 @@
+---
+
+- name: instalar paquetes
+  dnf:
+    name: "{{ lista }}"
+    state: present
