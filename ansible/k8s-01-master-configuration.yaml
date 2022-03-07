@@ -8,13 +8,13 @@
   roles:
     - firewall
 
-#- name: configurar kudeadm
-#  hosts: master
-#  gather_facts: no
-#  tasks:
-#    - name: configurar kudeadm
-#      command: kubeadm config images pull
-#      become: true
+- name: configurar kudeadm
+  hosts: master
+  gather_facts: no
+  tasks:
+    - name: configurar kudeadm
+      command: kubeadm config images pull
+      become: true
 
 #- name: acceso worker firewall
 #  hosts: master
