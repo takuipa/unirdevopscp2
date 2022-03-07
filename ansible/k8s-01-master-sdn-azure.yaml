@@ -1,0 +1,26 @@
+---
+
+- name: sdn azure
+  hosts: master
+  gather_facts: no
+  tasks:
+    - name: --cluster-cidr= y --allocate-node-cidrs=true
+      command: ps ax | grep cluster
+      register: output_cluster
+      become: true
+
+- name: sdn azure firewall
+  hosts: master
+  vars_files:
+    - "group_vars/firewall_k8s_sdn_azure.yaml"
+  gather_facts: no
+  roles:
+    - firewall
+
+- name: sdn azure
+  hosts: master
+  gather_facts: no
+  tasks:
+    - name: sdn apply
+      command: kubectl apply -f https://docs.projectcalico.org/manifests/canal.yaml
+      become: true

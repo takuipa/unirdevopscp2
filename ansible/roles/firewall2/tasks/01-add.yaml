@@ -1,0 +1,15 @@
+---
+
+#- name: anadir service
+#  command: "firewall-cmd --permanent --add-{{ option }}={{ item }}"
+#  become: true
+#  with_items: "{{ lista }}"
+
+- name: add rules firewall
+  firewalld:
+    permanent: yes
+    immediate: yes
+    port: "{{ item }}"
+    state: enabled
+  become: true
+  with_items: "{{ lista }}"

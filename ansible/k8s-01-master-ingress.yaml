@@ -1,0 +1,24 @@
+---
+
+- name: ingress controller
+  hosts: master
+  gather_facts: no
+  tasks:
+    - name: ingress controller
+      command: kubectl apply -f https://raw.githubusercontent.com/haproxytech/kubernetes-ingress/master/deploy/haproxy-ingress.yaml
+      become: true
+    - name: get namespaces
+      command: kubectl get namespaces
+      register: output_namespaces
+      become: true
+    - name: get pods
+      command: kubectl get pods --namespace=haproxy-controller
+      register: output_pods
+      become: true
+    - name: get servicios
+      command: kubectl get svc -A
+      register: output_servicios
+      become: true
+
+
+       
