@@ -16,13 +16,13 @@
       command: kubeadm config images pull
       become: true
 
-#- name: acceso worker firewall
-#  hosts: master
-#  vars_files:
-#    - "group_vars/firewall_k8s_worker.yaml"
-#  gather_facts: no
-#  roles:
-#    - firewall
+- name: acceso worker firewall
+  hosts: master
+  vars_files:
+    - "group_vars/firewall_k8s_worker.yaml"
+  gather_facts: no
+  roles:
+    - firewall
 
 #- name: instalar plugin CNI
 #  hosts: master
