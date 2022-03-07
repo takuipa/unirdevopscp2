@@ -1,6 +1,10 @@
 ---
 
+#- name: anadir service
+#  command: "firewall-cmd --permanent --add-{{ option }} {{ item }}"
+#  become: true
+#  with_items: "{{ lista }}"
+
 - name: anadir service
-  command: "firewall-cmd --permanent --add-{{ option }} {{ item }}"
+  command: "firewall-cmd --permanent --add-rich-rule 'rule family=ipv4 source address=192.168.1.23/32 accept'"
   become: true
-  with_items: "{{ lista }}"
