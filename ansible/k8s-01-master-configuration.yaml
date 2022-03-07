@@ -6,7 +6,7 @@
     - "group_vars/firewall_k8s.yaml"
   gather_facts: no
   roles:
-    - firewall2
+    - firewall
 
 #- name: configurar kudeadm
 #  hosts: master
