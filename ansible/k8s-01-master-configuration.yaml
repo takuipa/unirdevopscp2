@@ -22,7 +22,7 @@
 #    - "group_vars/firewall_k8s_worker.yaml"
 #  gather_facts: no
 #  roles:
-    - firewall
+#    - firewall
 
 #- name: instalar plugin CNI
 #  hosts: master
