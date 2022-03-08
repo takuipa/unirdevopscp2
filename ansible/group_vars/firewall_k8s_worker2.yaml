@@ -2,4 +2,4 @@
 
 option: 'port'
 
-lista: ['8285/udp', '8472/udp']
+lista: ['10250/tcp', '30000-32767/tcp']

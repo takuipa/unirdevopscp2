@@ -1,10 +1,10 @@
 ---
 
-#- name: anadir service
-#  command: "firewall-cmd --permanent --add-{{ option }} {{ item }}"
-#  become: true
-#  with_items: "{{ lista }}"
-
 - name: anadir service
-  command: "firewall-cmd --zone=public --permanent --add-port={10250,30000-32767}/tcp"
+  command: "firewall-cmd --zone=public --permanent --add-{{ option }}={{ item }}"
   become: true
+  with_items: "{{ lista }}"
+
+#- name: anadir service
+#  command: "firewall-cmd --zone=public --permanent --add-port={10250,30000-32767}/tcp"
+#  become: true
