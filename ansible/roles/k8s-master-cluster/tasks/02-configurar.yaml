@@ -3,16 +3,16 @@
 - name: Configurar kube de usuario admin
   copy:
     src: /etc/kubernetes/admin.conf
-    dest:  /home/{{ user }}/.kube/config
-    owner: {{ user}}
-    group: {{ user}}
+    dest:  /home/"{{ user }}"/.kube/config
+    owner: "{{ user }}"
+    group: "{{ user }}"
     mode: 0644
   become: true
 
 - name: Configurar sudoers.d de usuario admin
   copy:
     src: exports
-    dest:  /etc/sudoers.d/{{ user }}
+    dest:  /etc/sudoers.d/"{{ user }}"
     owner: root
     group: root
     mode: 0644
