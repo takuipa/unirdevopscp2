@@ -1,14 +1,5 @@
 ---
 
-- name: sdn azure
-  hosts: master
-  gather_facts: no
-  tasks:
-    - name: --cluster-cidr= y --allocate-node-cidrs=true
-      command: ps ax | grep cluster
-      register: output_cluster
-      become: true
-
 - name: sdn azure firewall
   hosts: master
   vars_files:

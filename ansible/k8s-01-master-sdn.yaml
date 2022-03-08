@@ -13,13 +13,5 @@
     - name: apply calico
       command: kubectl apply -f custom-resources.yaml
       become: true
-    - name: get nodes
-      command: kubectl get nodes
-      register: output_nodes
-      become: true
-    - name: get pods
-      command: kubectl get pods -A
-      register: output_pods
-      become: true
 
 #- name: reboot
