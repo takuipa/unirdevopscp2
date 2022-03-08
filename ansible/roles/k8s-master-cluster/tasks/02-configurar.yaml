@@ -1,9 +1,21 @@
 ---
 
-- name: Configurar kube de usuario admin
-  copy:
-    src: /etc/kubernetes/admin.conf
-    dest:  /home/"{{ user }}"/.kube/config
+- name: Configurar kube de usuario admin. Crear directorio.
+  file: 
+    path:  /home/"{{ user }}"/.kube/
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0644
+  become: true
+
+- name: Configurar kube de usuario admin. Copiar fichero (become:true escala en write no en lectura y no funciona con copy)
+  command: cp -i /etc/kubernetes/admin.conf /home/"{{ user }}"/.kube/config
+  become: true
+
+- name: Configurar kube de usuario admin. Permisos fichero.
+  file: 
+    path:  /home/"{{ user }}"/.kube/config
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: 0644
