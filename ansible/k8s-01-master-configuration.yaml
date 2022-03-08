@@ -37,16 +37,14 @@
   hosts: master
   gather_facts: no
   tasks:
-    - name: debug
-      debug: msg="output_kubeadm {{ output_kubeadm.stdout }}"
-#    - name: guardar output_kubeadm /unirdevopsscp2/ansible
-#      copy:
-#        src: output_kubeadm
-#        dest:  /unirdevopsscp2/ansible/output_kubeadm
-#        owner: root
-#        group: root
-#        mode: 0644
-#      become: true
+    - name: guardar output_kubeadm /tmp/output_kubeadm.log
+      copy:
+        src: {{ output_kubeadm.stdout }}
+        dest:  /tmp/output_kubeadm.log
+        owner: root
+        group: root
+        mode: 0644
+      become: true
 
 #- name: acceso root cluster
 #  hosts: master
