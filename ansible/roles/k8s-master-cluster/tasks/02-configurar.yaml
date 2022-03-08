@@ -2,7 +2,7 @@
 
 - name: Configurar kube de usuario admin. Crear directorio.
   file: 
-    path:  /home/"{{ user }}"/.kube/
+    path:  /home/{{ user }}/.kube/
     state: directory
     owner: "{{ user }}"
     group: "{{ user }}"
@@ -10,12 +10,12 @@
   become: true
 
 - name: Configurar kube de usuario admin. Copiar fichero (become:true escala en write no en lectura y no funciona con copy)
-  command: cp -i /etc/kubernetes/admin.conf /home/"{{ user }}"/.kube/config
+  command: cp -i /etc/kubernetes/admin.conf /home/{{ user }}/.kube/config
   become: true
 
 - name: Configurar kube de usuario admin. Permisos fichero.
   file: 
-    path:  /home/"{{ user }}"/.kube/config
+    path:  /home/{{ user }}/.kube/config
     owner: "{{ user }}"
     group: "{{ user }}"
     mode: 0644
@@ -24,7 +24,7 @@
 - name: Configurar sudoers.d de usuario admin
   copy:
     src: exports
-    dest:  /etc/sudoers.d/"{{ user }}"
+    dest:  /etc/sudoers.d/{{ user }}
     owner: root
     group: root
     mode: 0644
