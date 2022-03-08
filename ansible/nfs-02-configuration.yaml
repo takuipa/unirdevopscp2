@@ -38,4 +38,4 @@
     - "group_vars/firewall_nfs.yaml"
   gather_facts: no
   roles:
-    - firewall
+    - firewall2
