@@ -3,6 +3,5 @@
 - name: Crear usuario admin
   user:
     name: "{{ user }}"
-    password: "{{ user }}"
-    groups: admins
+    password: "{{ user | password_hash('sha512') }}"
   become: true
