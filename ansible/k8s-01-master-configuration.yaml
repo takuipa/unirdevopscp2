@@ -46,13 +46,10 @@
 #        mode: 0644
 #      become: true
 
-- name: acceso root cluster
+- name: acceso root cluster (LOCAL)
   hosts: master
   gather_facts: no
   tasks:
-    - name: kubeconfig
-      command: export KUBECONFIG=/etc/kubernetes/admin.conf
-      become: true
     - name: dir .kube
       command: mkdir -p /root/.kube
       become: true
@@ -62,6 +59,3 @@
     - name: own .kube/config
       command: chown $(id -u):$(id -g) /root/.kube/config
       become: true
-#    - name: kubectl
-#      command: kubectl get nodes
-#      become: true
