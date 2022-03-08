@@ -24,27 +24,27 @@
   roles:
     - firewall3
 
-- name: instalar plugin CNI
-  hosts: master
-  gather_facts: no
-  tasks:
-    - name: instalar plugin CNI
-      command: kubeadm init --pod-network-cidr 192.169.0.0/16
-      register: output_kubeadm
-      become: true
+#- name: instalar plugin CNI
+#  hosts: master
+#  gather_facts: no
+#  tasks:
+#    - name: instalar plugin CNI
+#      command: kubeadm init --pod-network-cidr 192.169.0.0/16
+#      register: output_kubeadm
+#      become: true
 
-- name: guardar salida
-  hosts: master
-  gather_facts: no
-  tasks:
-    - name: guardar output_kubeadm /tmp/output_kubeadm.log
-      copy:
-        src: "{{ output_kubeadm.stdout }}"
-        dest:  /tmp/output_kubeadm.log
-        owner: root
-        group: root
-        mode: 0644
-      become: true
+#- name: guardar salida
+#  hosts: master
+#  gather_facts: no
+#  tasks:
+#    - name: guardar output_kubeadm /tmp/output_kubeadm.log
+#      copy:
+#        src: "{{ output_kubeadm.stdout }}"
+#        dest:  /tmp/output_kubeadm.log
+#        owner: root
+#        group: root
+#        mode: 0644
+#      become: true
 
 - name: acceso root cluster
   hosts: master
