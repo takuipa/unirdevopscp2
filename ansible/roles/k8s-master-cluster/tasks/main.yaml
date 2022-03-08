@@ -1,4 +1,4 @@
 ---
 
 - include_tasks: 01-crear.yaml
-#- include_tasks: 02-configurar.yaml
+- include_tasks: 02-configurar.yaml
