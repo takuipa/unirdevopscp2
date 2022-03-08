@@ -39,29 +39,29 @@
   tasks:
     - name: guardar output_kubeadm /tmp/output_kubeadm.log
       copy:
-        src: {{ output_kubeadm.stdout }}
+        src: "{{ output_kubeadm.stdout }}"
         dest:  /tmp/output_kubeadm.log
         owner: root
         group: root
         mode: 0644
       become: true
 
-#- name: acceso root cluster
-#  hosts: master
-#  gather_facts: no
-#  tasks:
-#    - name: kubeconfig
-#      command: export KUBECONFIG=/etc/kubernetes/admin.conf
-#      become: true
-#    - name: dir .kube
-#      command: mkdir -p /root/.kube
-#      become: true
-#    - name: file .kube/config
-#      command: cp -i /etc/kubernetes/admin.conf /root/.kube/config
-#      become: true
-#    - name: own .kube/config
-#      command: chown $(id -u):$(id -g) /root/.kube/config
-#      become: true
+- name: acceso root cluster
+  hosts: master
+  gather_facts: no
+  tasks:
+    - name: kubeconfig
+      command: export KUBECONFIG=/etc/kubernetes/admin.conf
+      become: true
+    - name: dir .kube
+      command: mkdir -p /root/.kube
+      become: true
+    - name: file .kube/config
+      command: cp -i /etc/kubernetes/admin.conf /root/.kube/config
+      become: true
+    - name: own .kube/config
+      command: chown $(id -u):$(id -g) /root/.kube/config
+      become: true
 #    - name: kubectl
 #      command: kubectl get nodes
 #      become: true
