@@ -6,7 +6,6 @@
     state: directory
     owner: "{{ user }}"
     group: "{{ user }}"
-    mode: 0644
   become: true
 
 - name: Configurar kube de usuario admin. Copiar fichero (become:true escala en write no en lectura y no funciona con copy)
@@ -18,7 +17,6 @@
     path:  /home/{{ user }}/.kube/config
     owner: "{{ user }}"
     group: "{{ user }}"
-    mode: 0644
   become: true
 
 - name: Configurar sudoers.d de usuario admin
