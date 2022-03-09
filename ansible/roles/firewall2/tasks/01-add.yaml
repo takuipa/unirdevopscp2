@@ -5,8 +5,8 @@
 #  become: true
 #  with_items: "{{ lista }}"
 
-- name: add rules firewall
-  firewalld:
+- name: add rules firewall port
+  ansible.posix.firewalld:
     permanent: yes
     immediate: yes
     port: "{{ item }}"
