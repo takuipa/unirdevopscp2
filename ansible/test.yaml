@@ -4,8 +4,7 @@
   hosts: master
   gather_facts: no
   tasks:
-    - name: configurar puerto
-      ansible.posix.firewalld:
+    - ansible.posix.firewalld:
         port: 6443/tcp
         permanent: yes
         state: enabled
