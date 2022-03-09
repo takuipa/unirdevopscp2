@@ -4,10 +4,9 @@
   hosts: master
   gather_facts: no
   tasks:
-    - name: add rules firewall port
+    - name: configurar puerto
       firewalld:
         port: 6443/tcp
         permanent: yes
-        immediate: yes
         state: enabled
-  become: true
+      become: true
