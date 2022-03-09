@@ -1,0 +1,13 @@
+---
+
+- name: test firewall
+  hosts: master
+  gather_facts: no
+  tasks:
+    - name: add rules firewall port
+      firewalld:
+        port: 6443/tcp
+        permanent: yes
+        immediate: yes
+        state: enabled
+  become: true
