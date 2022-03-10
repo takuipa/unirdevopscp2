@@ -13,5 +13,5 @@ variable "vms" {
 variable "vm_size" {
   type = list(string)
   description = "Tamaño de la máquina virtual"
-  default = ["Standard_B2ms", "Standard_B2s", "Standard_B2s"] 
+  default = ["Standard_D2_v2", "Standard_D1_v2", "Standard_D1_v2"] 
 }
