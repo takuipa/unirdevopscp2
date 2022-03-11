@@ -33,9 +33,7 @@
   become: true
 
 - name: reload service nfsd
-  systemd: 
-    name="nfsd" 
-    state="reloaded"
+  command: "exportfs -rs"
   become: true
 
 - name: configurar firewall service
