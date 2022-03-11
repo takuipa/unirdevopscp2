@@ -1,0 +1,10 @@
+---
+
+- name: Configuracion nfs
+  hosts: nfs
+  vars_files:
+    - "group_vars/ips-privadas.yaml"
+    - "group_vars/nfs-configuration.yaml"
+  gather_facts: no
+  roles:
+    - nfs-configuration

@@ -1,5 +1,0 @@
----
-
-- name: aplicar configuracion exports
-  command: "sysctl --system"
-  become: true

@@ -1,0 +1,9 @@
+---
+
+- name: Configuracion sdn k8s
+  hosts: master
+  vars_files:
+    - "group_vars/k8s-master-sdn.yaml"
+  gather_facts: no
+  roles:
+    - k8s-master-sdn

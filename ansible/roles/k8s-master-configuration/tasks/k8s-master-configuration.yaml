@@ -1,0 +1,37 @@
+---
+
+- name: configurar firewalld port
+  firewalld:
+    port: "{{ item }}"
+    state: enabled
+    permanent: yes
+    immediate: yes
+  with_items: "{{ lista }}"
+  become: true
+
+- name: configurar kudeadm
+  command: kubeadm config images pull
+  become: true
+
+- name: configurar firewalld rich-rule
+  firewalld:
+    rich-rule: "{{ item }}"
+    state: enabled
+    permanent: yes
+    immediate: yes
+  with_items: "{{ rich_rules }}"
+  become: true
+
+- name: instalar plugin CNI
+  command: kubeadm init --pod-network-cidr 192.169.0.0/16
+  register: output_kubeadm
+  become: true
+
+#    - name: guardar output_kubeadm /tmp/output_kubeadm.log
+#      copy:
+#        src: "{{ output_kubeadm.stdout }}"
+#        dest:  /tmp/output_kubeadm.log
+#        owner: root
+#        group: root
+#        mode: 0644
+#      become: true

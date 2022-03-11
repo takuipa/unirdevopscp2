@@ -1,0 +1,10 @@
+---
+
+- name: Configuracion master k8s
+  hosts: master
+  vars_files:
+    - "group_vars/ips-privadas.yaml"
+    - "group_vars/k8s-master-configuration.yaml"
+  gather_facts: no
+  roles:
+    - k8s-master-configuration

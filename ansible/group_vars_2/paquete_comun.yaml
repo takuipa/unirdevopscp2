@@ -1,5 +1,0 @@
----
-
-lista: ['nfs-utils', 'nfs4-acl-tools', 'wget']
-
-deshabilitar: 'no'

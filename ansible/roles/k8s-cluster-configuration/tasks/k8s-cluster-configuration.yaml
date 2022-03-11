@@ -1,0 +1,108 @@
+---
+
+- name: configurar /etc/hosts
+  lineinfile:
+    path: /etc/hosts
+    line: "{{ item }}"
+    state: present
+    create: yes
+  with_items: "{{ hosts_names }}"
+  become: true
+
+- name: activar transparent masquerade
+  command: modprobe br_netfilter
+  become: true
+    
+- name: configurar firewall masquerade
+  firewalld:
+    masquerade: yes
+    state: enabled
+    permanent: yes
+    immediate: yes
+  become: true
+
+- name: reload service firewalld
+  systemd:
+  name: firewalld
+  state: reloaded
+  become: true
+
+- name: trafico con cortafuegos crear fichero /etc/sysctl.d/k8s.conf
+  copy:
+    src: cortafuegos
+    dest:  /etc/sysctl.d/k8s.conf
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+
+- name: trafico con cortafuegos aplicar configuracion
+  command: "sysctl --system"
+  become: true
+
+- name: desactivar swap (session atual)
+  command: swapoff  -a
+  become: true
+
+- name: eliminar swap (persistente)
+  command: sed -i '/swap/d' /etc/fstab
+  become: true
+
+- name: crio wget stable.repo 
+  get_url:
+    url: https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/CentOS_8_Stream/devel:kubic:libcontainers:stable.repo
+    dest: /etc/yum.repos.d/devel:kubic:libcontainers:stable.repo
+  become: true
+
+- name: crio wget cri-o:1.23:1.23.1.repo
+  get_url:
+    url: https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:cri-o:1.23:1.23.1/CentOS_8_Stream/devel:kubic:libcontainers:stable:cri-o:1.23:1.23.1.repo
+    dest: /etc/yum.repos.d/devel:kubic:libcontainers:stable:cri-o:1.23:1.23.1.repo
+  become: true
+
+- name: crio crear fichero /etc/modules-load.d/crio.conf
+  copy:
+    src: crio
+    dest:  /etc/modules-load.d/crio.conf
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+
+- name: instalar cri-o
+  dnf:
+    name: "cri-o"
+    state: latest
+  become: true
+
+- name: habilitar crio
+  systemd:
+    name: "crio"
+    state: "started"
+    enabled: yes
+    masked: no
+  become: true
+
+- name: anadir repo kubernetes /etc/yum.repos.d/kubernetes.repo
+  copy:
+    src: kubernetes
+    dest:  /etc/yum.repos.d/kubernetes.repo
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+
+- name: instalar paquetes kubernetes
+  dnf:
+    name: "{{ lista }}"
+    state: present
+    disable_excludes: "{{ exclude }}"
+  become: true
+
+- name: habilitar kubelet
+  systemd:
+    name: "kubelet"
+    state: "started"
+    enabled: yes
+    masked: no
+  become: true

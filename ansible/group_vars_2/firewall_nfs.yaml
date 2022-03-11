@@ -1,4 +1,0 @@
----
-
-option: 'service'
-lista: ['nfs', 'rpc-bind', 'mountd']

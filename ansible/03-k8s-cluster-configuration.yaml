@@ -1,0 +1,10 @@
+---
+
+- name: Configuracion cluster k8s
+  hosts: master, workers
+  vars_files:
+    - "group_vars/ips-privadas.yaml"
+    - "group_vars/k8s-cluster-configuration.yaml"
+  gather_facts: no
+  roles:
+    - k8s-cluster-configuration

@@ -1,0 +1,9 @@
+---
+
+- name: Configuracion worker k8s
+  hosts: workers
+  vars_files:
+    - "group_vars/k8s-worker-configuration.yaml"
+  gather_facts: no
+  roles:
+    - k8s-worker-configuration

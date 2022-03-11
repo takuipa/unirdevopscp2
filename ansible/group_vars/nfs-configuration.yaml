@@ -2,8 +2,6 @@
 
 nfs_ruta: '/srv/nfs'
 
-allowed_nfs_hosts: ['10.0.1.10', '10.0.1.11', '10.0.1.12'] #IPs privadas de master, workers, nfs
-
 allowed_nfs_permisos: 'rw,sync'
 
 lista: ['nfs', 'rpc-bind', 'mountd']

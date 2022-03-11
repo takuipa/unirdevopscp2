@@ -1,0 +1,14 @@
+---
+
+- name: configurar firewall port
+  firewalld:
+    port: "{{ item }}"
+    state: enabled
+    permanent: yes
+    immediate: yes
+  with_items: "{{ lista }}"
+  become: true
+
+- name: apply sdn
+  command: kubectl apply -f https://docs.projectcalico.org/manifests/canal.yaml
+  become: true

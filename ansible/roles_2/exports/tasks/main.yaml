@@ -1,4 +1,0 @@
----
-
-- include_tasks: 01-crear.yaml
-- include_tasks: 02-aplicar.yaml
