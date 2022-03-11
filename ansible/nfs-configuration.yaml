@@ -1,0 +1,9 @@
+---
+
+- name: Configuracion nfs
+  hosts: all
+  vars_files:
+    - "group_vars/nfs-configuration.yaml"
+  gather_facts: no
+  roles:
+    - nfs-configuration

@@ -1,0 +1,54 @@
+---
+
+- name: instalar net-tools
+  dnf:
+    name: "net-tools"
+    state: latest
+  become: true
+
+- name: habilitar nfs-server
+  systemd:
+    name: "nfs-server"
+    state: "started"
+    enabled: yes
+    masked: no
+  become: true
+
+- name: crear directorio nfs
+  file: 
+    path: "{{ nfs_ruta }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0751
+  become: true
+
+- name: crear fichero /etc/exports
+  template: 
+    src: exports.j2
+    dest: /etc/exports
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+
+- name: reload service nfsd
+  systemd: 
+    name="nfsd" 
+    state="reloaded"
+  become: true
+
+- name: configurar firewall service
+  firewalld:
+    permanent: yes
+    immediate: yes
+    port: "{{ item }}"
+    state: enabled
+  with_items: "{{ lista }}"
+  become: true
+  
+- name: reload service firewalld
+  systemd: 
+    name="firewalld" 
+    state="reloaded"
+  become: true

@@ -1,4 +1,0 @@
----
-
-- include_tasks: 01-habilitar.yaml
-- include_tasks: 02-arrancar.yaml
