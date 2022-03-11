@@ -50,3 +50,4 @@
 
 - name: reboot para aplicar cambios (como selinux)
   reboot:
+  become: true
