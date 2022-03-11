@@ -27,7 +27,7 @@
 
 - name: configurar sudoers.d de usuario admin
   copy:
-    src: user
+    src: user.j2
     dest:  /etc/sudoers.d/{{ user }}
     owner: root
     group: root

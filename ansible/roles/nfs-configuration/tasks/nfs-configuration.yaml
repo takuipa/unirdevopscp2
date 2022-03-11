@@ -25,7 +25,7 @@
 
 - name: crear fichero /etc/exports
   template: 
-    src: exports
+    src: exports.j2
     dest: /etc/exports
     owner: root
     group: root
