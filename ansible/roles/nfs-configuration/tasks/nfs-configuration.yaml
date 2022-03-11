@@ -38,15 +38,15 @@
 
 - name: configurar firewall service
   firewalld:
+    service: "{{ item }}"
+    state: enabled
     permanent: yes
     immediate: yes
-    port: "{{ item }}"
-    state: enabled
   with_items: "{{ lista }}"
   become: true
   
 - name: reload service firewalld
   systemd: 
-    name="firewalld" 
-    state="reloaded"
+    name: "firewalld" 
+    state: "reloaded"
   become: true
