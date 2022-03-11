@@ -22,9 +22,9 @@
   become: true
 
 - name: reload service firewalld
-  systemd:
-  name: firewalld
-  state: reloaded
+  systemd: 
+    name: "firewalld" 
+    state: "reloaded"
   become: true
 
 - name: trafico con cortafuegos crear fichero /etc/sysctl.d/k8s.conf
@@ -37,7 +37,7 @@
   become: true
 
 - name: trafico con cortafuegos aplicar configuracion
-  command: "sysctl --system"
+  command: sysctl --system
   become: true
 
 - name: desactivar swap (session atual)
