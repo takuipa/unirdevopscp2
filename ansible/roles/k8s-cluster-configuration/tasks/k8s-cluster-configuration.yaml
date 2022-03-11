@@ -28,7 +28,7 @@
   become: true
 
 - name: trafico con cortafuegos crear fichero /etc/sysctl.d/k8s.conf
-  copy:
+  template:
     src: cortafuegos.j2
     dest:  /etc/sysctl.d/k8s.conf
     owner: root
@@ -61,7 +61,7 @@
   become: true
 
 - name: crio crear fichero /etc/modules-load.d/crio.conf
-  copy:
+  template:
     src: crio.j2
     dest:  /etc/modules-load.d/crio.conf
     owner: root
@@ -84,7 +84,7 @@
   become: true
 
 - name: anadir repo kubernetes /etc/yum.repos.d/kubernetes.repo
-  copy:
+  template:
     src: kubernetes.j2
     dest:  /etc/yum.repos.d/kubernetes.repo
     owner: root
