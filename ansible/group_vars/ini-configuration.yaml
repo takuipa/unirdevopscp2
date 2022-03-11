@@ -1,0 +1,5 @@
+---
+
+zona: 'Europe/Madrid'
+
+lista: ['nfs-utils', 'nfs4-acl-tools', 'wget']

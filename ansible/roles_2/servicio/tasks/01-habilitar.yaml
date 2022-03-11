@@ -1,0 +1,7 @@
+---
+
+- name: habilitar servicio
+  systemd:
+    name: "{{ servicio }}"
+    enabled: yes
+  become: true

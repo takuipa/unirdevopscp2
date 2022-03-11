@@ -1,0 +1,9 @@
+---
+
+- name: Configuracion inicial
+  hosts: all
+  vars_files:
+    - "group_vars/ini-configuration.yaml"
+  gather_facts: no
+  roles:
+    - ini-configuration

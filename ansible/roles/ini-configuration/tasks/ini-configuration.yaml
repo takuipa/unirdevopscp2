@@ -1,0 +1,41 @@
+---
+
+- name: actualizar paquetes
+  dnf:
+    name: '*'
+    state: latest
+  become: true
+
+- name: configurar zona
+  timezone:
+    name: "{{zona}}"
+  become: true
+
+- name: instalar chrony
+- dnf:
+    name: "chrony"
+    state: latest
+  become: true
+
+- name: configurar chrony
+  systemd:
+    name: "chronyd"
+    state: "started"
+    enabled: yes
+    masked: no
+  become: true
+
+- name: configurar timedatectl
+  command: timedatectl set-ntp true
+  become: true
+
+- name: deshabilitar SELinux
+  selinux:
+    state: disabled
+  become: true
+
+- name: instalar paquetes comunes
+  dnf:
+    name: "{{ lista }}"
+    state: latest
+  become: true
