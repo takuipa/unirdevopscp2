@@ -4,6 +4,6 @@ lista: ['haproxy', 'python3-libsemanage']
 
 worker1: '20.229.49.69'
 
-sqlport: '3306'
+mysqlport: '3306'
 nodeport: '31234'
 protocol: 'tcp'
