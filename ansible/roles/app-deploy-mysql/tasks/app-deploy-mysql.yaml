@@ -1,4 +1,9 @@
 ---
 
+- name: crear mysql.yaml
+  template:
+    src: mysql.j2
+    dest:  /apps/mysql.yaml
+  
 - name: deploy app mysql
-  command: kubectl apply -f mysql.yaml
+  command: kubectl apply -f /apps/mysql.yaml
