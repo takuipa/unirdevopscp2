@@ -4,6 +4,9 @@
   file: 
     path:  /apps
     state: directory
+    owner: adminUsername
+    group: adminUsername
+  become: true
 
 - name: crear mysql.yaml
   template:
