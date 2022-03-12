@@ -25,7 +25,7 @@
 - name: reboot para aplicar cambios (como selinux)
   reboot:
   become: true
-  
+
 - name: configure selinux booleans for haproxy
   seboolean:
     name: haproxy_connect_any
@@ -44,7 +44,7 @@
 
 - name: firewall configuration for nodeport
   firewalld:
-    port: "{{ sqlport }}/{{ protocol }}"
+    port: "{{ mysqlport }}/{{ protocol }}"
     permanent: yes
     state: enabled
     immediate: yes
