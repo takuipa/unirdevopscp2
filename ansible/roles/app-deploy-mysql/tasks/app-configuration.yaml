@@ -19,6 +19,7 @@
 - name: habilitar SELinux
   selinux:
     state: enforcing
+    policy: targeted
   become: true
 
 - name: configure selinux booleans for haproxy
