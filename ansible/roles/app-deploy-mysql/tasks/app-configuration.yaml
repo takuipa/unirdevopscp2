@@ -49,3 +49,11 @@
     state: enabled
     immediate: yes
   become: true
+
+- name: firewall configuration for nodeport
+  firewalld:
+    port: "{{ nodeport }}/{{ protocol }}"
+    permanent: yes
+    state: enabled
+    immediate: yes
+  become: true
