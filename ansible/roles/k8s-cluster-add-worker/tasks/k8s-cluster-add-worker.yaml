@@ -7,5 +7,5 @@
 - debug: var=output_join_command.stdout_lines
 
 - name: add worker cluster
-  command: "{{ output_join_command.stodout }}"
+  command: "{{ output_join_command.stdout_lines }}"
   become: true
