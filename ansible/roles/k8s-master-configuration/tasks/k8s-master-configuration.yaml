@@ -22,12 +22,12 @@
   with_items: "{{ rich_rules }}"
   become: true
 
-#- name: instalar plugin CNI
-#  command: kubeadm init --pod-network-cidr {{ network_pod }}/16
-#  register: output_kubeadm
-#  become: true
+- name: instalar plugin CNI
+  command: kubeadm init --pod-network-cidr {{ network_pod }}/16
+  register: output_kubeadm
+  become: true
 
-- name: guardar token
+- name: guardar kubeadm token
   command: kubeadm token create --print-join-command
   register: output_token
   become: true
