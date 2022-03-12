@@ -22,7 +22,7 @@ resource "azurerm_network_security_group" "mySecGroup" {
 
     security_rule {
         name                       = "MYSQL"
-        priority                   = 1001
+        priority                   = 1002
         direction                  = "Inbound"
         access                     = "Allow"
         protocol                   = "Tcp"
