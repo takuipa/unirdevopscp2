@@ -1,7 +1,5 @@
 ---
 
-hosts_names: ['{{ hosts_ips[0] }} kubemaster kubemaster.acme.es', '{{ hosts_ips[1] }} kubenode1 kubenode1.acme.es', '{{ hosts_ips[2]}} nfs nfs.acme.es'] #master, workers, nfs
-
 lista: ['kubelet', 'kubeadm', 'kubectl']
 
 exclude: 'kubernetes'
