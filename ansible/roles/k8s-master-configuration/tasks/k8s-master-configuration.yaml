@@ -15,7 +15,7 @@
 
 - name: configurar firewalld rich-rule
   firewalld:
-    rich-rule: "{{ item }}"
+    rich_rule: "{{ item }}"
     state: enabled
     permanent: yes
     immediate: yes
