@@ -26,7 +26,7 @@
   become: true
 
 - name: configurar sudoers.d de usuario admin
-  copy:
+  template:
     src: user.j2
     dest:  /etc/sudoers.d/{{ user }}
     owner: root
