@@ -1,0 +1,43 @@
+---
+
+- name: install haproxy
+  dnf:
+    name: "{{ lista }}"
+    state: latest
+  become: yes
+
+- name: copy haproxy configuration file
+  template:
+    src: haproxy.j2
+    dest: /etc/haproxy/haproxy.cfg
+    owner: root
+    group: root
+    mode: 0644
+    setype: etc_t
+  become: yes
+
+- name: configure selinux booleans for haproxy
+  seboolean:
+    name: haproxy_connect_any
+    state: yes
+    persistent: yes
+  become: yes
+
+- name: enable services
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+    enabled: yes
+    masked: no
+    daemon_reload: yes
+  become: yes
+  with_items:
+    - "haproxy"
+
+- name: firewall configuration for nodeport
+  firewalld:
+    port: "{{ sqlport }}/{{ protocol }}"
+    permanent: yes
+    state: enabled
+    immediate: yes
+  become: true
