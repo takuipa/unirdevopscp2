@@ -1,6 +1,6 @@
 ---
 
-- name: usuario admnistrador del cluster
+- name: Usuario admnistrador del cluster
   hosts: master
   vars_files:
     - "group_vars/k8s-cluster-usuario.yaml"

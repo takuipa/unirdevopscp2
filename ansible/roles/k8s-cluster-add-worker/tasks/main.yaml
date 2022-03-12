@@ -1,3 +1,0 @@
----
-
-- include_tasks: k8s-cluster-add-worker.yaml
