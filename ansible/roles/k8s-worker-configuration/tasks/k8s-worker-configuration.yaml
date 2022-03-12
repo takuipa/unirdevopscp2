@@ -9,6 +9,6 @@
   with_items: "{{ lista }}"
   become: true
 
-- name: add worker cluster
-  command: kubeadm join 10.0.1.10:6443 --token srxpkl.hg9q5r4hl5cryxzl --discovery-token-ca-cert-hash sha256:cbac13acef3947a706ef0f6fe8c51067b25ac50c8648048e63c9b3c1a1386c27
-  become: true
+#- name: add worker cluster
+#  command: kubeadm join 10.0.1.10:6443 --token srxpkl.hg9q5r4hl5cryxzl --discovery-token-ca-cert-hash sha256:cbac13acef3947a706ef0f6fe8c51067b25ac50c8648048e63c9b3c1a1386c27
+#  become: true
