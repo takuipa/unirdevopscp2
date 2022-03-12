@@ -1,3 +1,5 @@
 ---
 
 hosts_ips: ['10.0.1.10', '10.0.1.11', '10.0.1.12'] #IPs privadas de master, workers, nfs
+
+network_pod: 10.1.0.0
