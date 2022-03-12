@@ -16,6 +16,11 @@
     setype: etc_t
   become: yes
 
+- name: habilitar SELinux
+  selinux:
+    state: enforcing
+  become: true
+
 - name: configure selinux booleans for haproxy
   seboolean:
     name: haproxy_connect_any
@@ -23,16 +28,14 @@
     persistent: yes
   become: yes
 
-- name: enable services
+- name: habilitar haproxy
   systemd:
-    name: "{{ item }}"
+    name: "haproxy"
     state: restarted
     enabled: yes
     masked: no
     daemon_reload: yes
   become: yes
-  with_items:
-    - "haproxy"
 
 - name: firewall configuration for nodeport
   firewalld:
