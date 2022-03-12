@@ -14,9 +14,9 @@
     group: "{{ user }}"
   become: true
 
-- name: configurar kube de usuario admin. Copiar fichero (become:true escala en write no en lectura y no funciona con copy)
-  command: cp -i /etc/kubernetes/admin.conf /home/{{ user }}/.kube/config
-  become: true
+#- name: configurar kube de usuario admin. Copiar fichero (become:true escala en write no en lectura y no funciona con copy)
+#  command: cp -i /etc/kubernetes/admin.conf /home/{{ user }}/.kube/config
+#  become: true
 
 - name: configurar kube de usuario admin. Permisos fichero.
   file: 
