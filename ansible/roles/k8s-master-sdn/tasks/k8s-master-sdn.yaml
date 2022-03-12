@@ -12,6 +12,6 @@
 - name: apply sdn
   command: kubectl apply -f https://docs.projectcalico.org/manifests/canal.yaml
 
-- name: reboot para aplicar cambios (como selinux)
+- name: reboot para aplicar cambios
   reboot:
   become: true

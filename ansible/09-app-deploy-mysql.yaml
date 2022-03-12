@@ -1,0 +1,7 @@
+---
+
+- name: Despliegue app mysql
+  hosts: master
+  gather_facts: no
+  roles:
+    - app-deploy-mysql

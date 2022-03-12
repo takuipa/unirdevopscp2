@@ -1,0 +1,4 @@
+---
+
+- name: deploy app mysql
+  command: kubectl apply -f mysql.yaml
