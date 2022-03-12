@@ -2,10 +2,10 @@
 
 - name: generar join-command
   command: kubeadm token create --print-join-command
-  register: output-join-command
+  register: output_join_command
   become: true
-- debug: var=output-join-command.stodout.stdout_lines
+- debug: var=output_join_command.stodout.stdout_lines
 
 - name: add worker cluster
-  command: "{{ output-join-command.stodout }}"
+  command: "{{ output_join_command.stodout }}"
   become: true
