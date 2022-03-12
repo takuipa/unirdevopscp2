@@ -22,15 +22,20 @@
   with_items: "{{ rich_rules }}"
   become: true
 
-- name: instalar plugin CNI
-  command: kubeadm init --pod-network-cidr {{ network_pod }}/16
-  register: output_kubeadm
-  become: true
+#- name: instalar plugin CNI
+#  command: kubeadm init --pod-network-cidr {{ network_pod }}/16
+#  register: output_kubeadm
+#  become: true
 
-- name: guardar output_kubeadm /tmp/output_kubeadm.log
+- name: guardar token
+  command: kubeadm token create
+  register: output_token
+  become: true
+  
+- name: guardar output_token /tmp/output_token.log
   copy:
-    src: "{{ output_kubeadm.stdout }}"
-    dest:  /tmp/output_kubeadm.log
+    src: "{{ output_token.stdout }}"
+    dest:  /tmp/output_token.log
     owner: root
     group: root
     mode: 0644

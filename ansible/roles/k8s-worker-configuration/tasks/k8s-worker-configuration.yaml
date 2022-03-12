@@ -11,4 +11,3 @@
 
 - name: add worker cluster
   command: kubeadm join 192.168.1.24:6443 --token yha7ux.9ez5yp2yrgtz1a73 --discovery-token-ca-cert-hash sha256:5761830722e421ee2724c24642829d5b4f8f47b7e041bd429a7ac0a9fc59888a
-  become: true
