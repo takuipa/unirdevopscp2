@@ -1,5 +1,10 @@
 ---
 
+- name: crear diretorio apps
+  file: 
+    path:  /apps
+    state: directory
+
 - name: crear mysql.yaml
   template:
     src: mysql.j2
