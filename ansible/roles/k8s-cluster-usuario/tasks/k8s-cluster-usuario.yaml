@@ -1,11 +1,5 @@
 ---
 
-#- name: crear usuario admin
-#  user:
-#    name: "{{ user }}"
-#    password: "{{ user | password_hash('sha512') }}"
-#  become: true
-
 - name: configurar kube de usuario admin. Crear directorio.
   file: 
     path:  /home/{{ user }}/.kube/
