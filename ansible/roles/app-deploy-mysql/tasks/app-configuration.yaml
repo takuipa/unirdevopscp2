@@ -22,6 +22,10 @@
     policy: targeted
   become: true
 
+- name: reboot para aplicar cambios (como selinux)
+  reboot:
+  become: true
+  
 - name: configure selinux booleans for haproxy
   seboolean:
     name: haproxy_connect_any
