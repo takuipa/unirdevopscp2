@@ -28,17 +28,7 @@
 #  become: true
 
 - name: guardar token
-  command: kubeadm token create
+  command: kubeadm token create --print-join-command
   register: output_token
   become: true
 - debug: var=output_token.stdout_lines
-
-#- name: guardar output_token /tmp/output_token.log
-#  copy:
-#    src: "{{ output_token.stdout }}"
-#    dest:  /tmp/output_token.log
-#    owner: root
-#    group: root
-#    mode: 0644
-#  delegate_to: localhost
-#  become: true
