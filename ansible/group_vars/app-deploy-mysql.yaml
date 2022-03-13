@@ -2,7 +2,7 @@
 
 lista: ['haproxy', 'python3-libsemanage']
 
-worker1: '{{ hostvars['workers'][0] }}' # IP Publica del worker para balancear
+worker1: '{{ hostvars[workers][0] }}' # IP Publica del worker para balancear
 
 mysqlport: '3306'
 nodeport: '31234'
