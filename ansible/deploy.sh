@@ -9,7 +9,7 @@ ansible-playbook -i hosts 04-k8s-master-configuration.yaml # configuración del 
 # (1) Actualizar variable "comando" en "/group_vars/k8s-worker-configuration.yaml" 
 # (2) Lanzar ansible-playbook -i hosts 08-k8s-cluster-add-worker.yaml con ese valor --extra-vars "comando='salida del paso 04'"
 ansible-playbook -i hosts 05-k8s-cluster-usuario.yaml # creación de un usuario admin para ver el cluster
-ansible-playbook -i hosts 06-k8s-master-sdn.yaml # instalación sdn (entre nodos)
-ansible-playbook -i hosts 07-k8s-master-ingress.yaml # instalación ingress (fuera http y https)
+ansible-playbook -i hosts 06-k8s-master-sdn.yaml # instalación sdn (comunicación entre pods)
+ansible-playbook -i hosts 07-k8s-master-ingress.yaml # instalación ingress (comunicación pods desde fuera)
 ansible-playbook -i hosts 08-k8s-worker-configuration.yaml  --extra-vars "comando='salida del paso 04'" # añadir worker al cluster
 ansible-playbook -i hosts 09-app-desploy-mysql.yaml # despliegue mysql
