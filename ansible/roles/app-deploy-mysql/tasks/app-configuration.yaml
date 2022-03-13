@@ -42,7 +42,7 @@
     daemon_reload: yes
   become: yes
 
-- name: firewall configuration for nodeport
+- name: firewall configuration for mysqlport
   firewalld:
     port: "{{ mysqlport }}/{{ protocol }}"
     permanent: yes

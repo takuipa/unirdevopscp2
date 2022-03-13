@@ -36,4 +36,4 @@ listen  haproxy_mysql
         timeout server  10800s
         balance leastconn
         option tcp-check
-        server {{ worker1 }} {{ worker1 }}:{{ nodeport }} check
+        server {{ worker1_ip }} {{ worker1_ip }}:{{ nodeport }} check
