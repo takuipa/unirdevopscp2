@@ -1,6 +1,6 @@
 ---
 
-nfs_ruta: '/srv/nfs'
+nfs_ruta: '/mnt/data'
 
 allowed_nfs_permisos: 'rw,sync'
 
