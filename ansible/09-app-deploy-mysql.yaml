@@ -4,6 +4,7 @@
   hosts: master
   vars_files:
     - "group_vars/ips-privadas.yaml"
+    - "group_vars/nfs-configuration.yaml"
     - "group_vars/app-deploy-mysql.yaml"
   gather_facts: no
   roles:

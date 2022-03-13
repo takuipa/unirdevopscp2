@@ -23,7 +23,7 @@ resource "azurerm_subnet" "mySubnet" {
 
 }
 
-# Create NIC
+# Create NIC por cada una de las entradas vm ["master", "worker01", "nfs"] 
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface
 
 resource "azurerm_network_interface" "myNic" {
@@ -46,7 +46,7 @@ resource "azurerm_network_interface" "myNic" {
 
 }
 
-# IP pública
+# IP pública por cada una de las entradas vm ["master", "worker01", "nfs"] 
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip
 
 resource "azurerm_public_ip" "myPublicIp" {

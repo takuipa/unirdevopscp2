@@ -1,5 +1,5 @@
 
-# Security group
+# Security group por cada una de las entradas vm ["master", "worker01", "nfs"] 
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group
 
 resource "azurerm_network_security_group" "mySecGroup" {
@@ -20,6 +20,7 @@ resource "azurerm_network_security_group" "mySecGroup" {
         destination_address_prefix = "*"
     }
 
+    # Regla necesaria para poder desplegar app mysql
     security_rule {
         name                       = "MYSQL"
         priority                   = 1002
@@ -32,6 +33,7 @@ resource "azurerm_network_security_group" "mySecGroup" {
         destination_address_prefix = "*"
     }
 
+    # Regla necesaria para poder desplegar app mysql servicio balanceado
     security_rule {
         name                       = "HAPRXY"
         priority                   = 1003
@@ -49,7 +51,7 @@ resource "azurerm_network_security_group" "mySecGroup" {
     }
 }
 
-# Vinculamos el security group al interface de red
+# Vinculamos el security group al interface de red por cada una de las entradas vm ["master", "worker01", "nfs"] 
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface_security_group_association
 
 resource "azurerm_network_interface_security_group_association" "mySecGroupAssociation" {

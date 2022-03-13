@@ -32,7 +32,7 @@ spec:
     - hard
     - nfsvers=4.1
   nfs:
-    path: /srv/nfs
+    path: {{ nfs_ruta }}
     server: {{ nfs }}
 ---
 apiVersion: v1
