@@ -23,11 +23,11 @@ resource "azurerm_subnet" "mySubnet" {
 
 }
 
-# Create NIC por cada una de las entradas vm ["master", "worker01", "nfs"] 
+# Create NIC
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface
 
 resource "azurerm_network_interface" "myNic" {
-  count               = length(var.vms)
+  count               = length(var.vms) # Por cada una de las entradas vm ["master", "worker1", "nfs"]
   name                = "vmnic-${var.vms[count.index]}"  
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
@@ -46,11 +46,11 @@ resource "azurerm_network_interface" "myNic" {
 
 }
 
-# IP pública por cada una de las entradas vm ["master", "worker01", "nfs"] 
+# IP pública
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip
 
 resource "azurerm_public_ip" "myPublicIp" {
-  count               = length(var.vms)
+  count               = length(var.vms) # Por cada una de las entradas vm ["master", "worker1", "nfs"]
   name                = "vmip-${var.vms[count.index]}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
