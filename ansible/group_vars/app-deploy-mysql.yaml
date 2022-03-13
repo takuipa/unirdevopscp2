@@ -2,7 +2,7 @@
 
 lista: ['haproxy', 'python3-libsemanage']
 
-worker1: '20.229.49.69'
+worker1: '{{ hosts_ips[1] }}' # IP Publica
 
 mysqlport: '3306'
 nodeport: '31234'

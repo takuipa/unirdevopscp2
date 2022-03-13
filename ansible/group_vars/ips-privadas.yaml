@@ -1,5 +1,10 @@
 ---
 
-hosts_ips: ['10.0.1.10', '10.0.1.11', '10.0.1.12'] #IPs privadas de master, workers, nfs
+# IPs privadas de master, workers, nfs
+master: '10.0.1.10'
+worker1: '10.0.1.11'
+nfs: '10.0.1.12'
 
-network_pod: 10.1.0.0
+hosts_ips: ['{{ master }}', '{{ worker1 }}', '{{ nfs }}'] #IPs privadas de master, workers, nfs
+
+network_pod: '10.1.0.0'

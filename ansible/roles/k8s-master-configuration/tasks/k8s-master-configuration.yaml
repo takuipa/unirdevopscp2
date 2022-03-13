@@ -27,8 +27,8 @@
   register: output_kubeadm
   become: true
 
-#- name: guardar kubeadm token
-#  command: kubeadm token create --print-join-command
-#  register: output_token
-#  become: true
-#- debug: var=output_token.stdout_lines
+- name: generar join-command
+  command: kubeadm token create --print-join-command
+  register: output_join_command
+  become: true
+- debug: var=output_join_command.stdout_lines

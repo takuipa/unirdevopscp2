@@ -1,15 +1,7 @@
 ---
-
-- name:  Generar join-command cluster
-  hosts: master
-  gather_facts: no
-  roles:
-    - k8s-master-join-command
   
 - name: Configuracion worker k8s
   hosts: workers
-  vars:
-    comando: "{{ output_join_command.stdout_lines }}"
   vars_files:
     - "group_vars/k8s-worker-configuration.yaml"
   gather_facts: no

@@ -1,3 +1,6 @@
 ---
 
 lista: ['10250/tcp', '30000-32767/tcp']
+
+# comando es la salida output_join_command.stdout_lines del ultimo pasado de k8-master-configuration.yaml
+comando: ""
