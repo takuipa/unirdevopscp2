@@ -20,16 +20,16 @@ kind: PersistentVolume
 metadata:
   name: mysql-pv-volume
   namespace: mysql
+  labels:
+    type: local
 spec:
-  accessModes:
-   - ReadWriteMany
-  mountOptions:
-   - nfsvers=4.1
+  storageClassName: manual
   capacity:
-     storage: 2Gi
-  nfs:
-     server: {{ nfs }}
-     path: "{{ nfs_ruta }}"
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -37,8 +37,9 @@ metadata:
   name: mysql-pv-claim
   namespace: mysql
 spec:
+  storageClassName: manual
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 2Gi
