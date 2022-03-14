@@ -21,19 +21,15 @@ metadata:
   name: mysql-pv-volume
   namespace: mysql
 spec:
-  capacity:
-    storage: 2Gi
-  volumeMode: Filesystem
   accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Recycle
-  storageClassName: nfs
+   - ReadWriteMany
   mountOptions:
-    - hard
-    - nfsvers=4.1
+   - nfsvers=4.1
+  capacity:
+     storage: 2Gi
   nfs:
-    path: {{ nfs_ruta }}
-    server: {{ nfs }}
+     server: {{ nfs }}
+     path: "{{ nfs_ruta }}"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -41,9 +37,8 @@ metadata:
   name: mysql-pv-claim
   namespace: mysql
 spec:
-  storageClassName: nfs
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 2Gi
